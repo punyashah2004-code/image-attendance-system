@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insider Threat Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+    <h2>🔐 SecureSys</h2>
+        <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/activity">User Activity</a></li>
+        <li><a href="/alerts">Threat Alerts</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h2>Insider Threat Dashboard</h2>
+        </div>
+
+        <!-- Cards -->
+<div class="cards">
+
+    <div class="card" onclick="loadUsers()">
+        <h3>Total Users</h3>
+        <p id="users">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Active Sessions</h3>
+        <p id="sessions">0</p>
+    </div>
+
+    <div class="card danger" onclick="loadThreats()">
+        <h3>Threats</h3>
+        <p id="threats">0</p>
+    </div>
+
+</div>
+
+<button onclick="detectThreats()">Scan System</button>
+
+        <!-- Table -->
+        <div class="table-box">
+            <h3>Detected Threats</h3>
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

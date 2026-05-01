@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Activity</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🔐 SecureSys</h2>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/activity">User Activity</a></li>
+            <li><a href="/alerts">Threat Alerts</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <h2>User Activity Logs</h2>
+
+        <button onclick="loadActivity()">Load Activity</button>
+
+        <table id="activityTable">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+function loadActivity() {
+    fetch('/get_activity')
+        .then(res => res.json())
+        .then(data => {
+
+            let table = document.querySelector("#activityTable tbody");
+            table.innerHTML = "";
+
+            data.forEach(item => {
+                let row = `<tr>
+                    <td>${item.user}</td>
+                    <td>${item.action}</td>
+                    <td>${item.date}</td>
+                    <td>${item.time}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        });
+}
+</script>
+
+</body>
+</html>

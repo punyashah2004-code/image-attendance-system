@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Threat Alerts</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🔐 SecureSys</h2>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/activity">User Activity</a></li>
+            <li><a href="/alerts">Threat Alerts</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <h2>🚨 Threat Alerts</h2>
+
+        <button onclick="loadAlerts()">Detect Threats</button>
+
+        <table id="alertTable">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+<script>
+function loadAlerts() {
+    fetch('/detect')
+        .then(res => res.json())
+        .then(data => {
+
+            let table = document.querySelector("#alertTable tbody");
+            table.innerHTML = "";
+
+            data.forEach(item => {
+
+                let color = "black";
+
+                if (item.action === "Upload File" || 
+                    item.action === "Database Access" || 
+                    item.action === "Financial File Access") {
+                    color = "red";
+                }
+
+                let row = `<tr style="color:${color};">
+                    <td>${item.user}</td>
+                    <td>${item.action}</td>
+                    <td>${item.date}</td>
+                    <td>${item.time}</td>
+                </tr>`;
+
+                table.innerHTML += row;
+            });
+        });
+}
+</script>
+
+</body>
+</html>

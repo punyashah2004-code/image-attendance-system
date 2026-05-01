@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+}
+
+/* Header */
+.header {
+    background: #1e293b;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    background: red;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Container */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Folder */
+.folder {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.folder h3 {
+    margin-bottom: 10px;
+}
+
+.folder ul {
+    list-style: none;
+    padding: 0;
+}
+
+.folder li {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.folder li:hover {
+    background: #e2e8f0;
+}
+
+/* Upload */
+.upload {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+.upload button {
+    padding: 10px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload button:hover {
+    background: #1d4ed8;
+}

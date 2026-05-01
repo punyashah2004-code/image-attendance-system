@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Panel</title>
+    <link rel="stylesheet" href="/static/user.css">
+</head>
+<body>
+
+<div class="header">
+    <h2>📁 Secure File System</h2>
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+<div class="container">
+
+    <!-- Folder 1 -->
+    <div class="folder">
+        <h3>📂 Financial Records</h3>
+        <ul>
+            <li onclick="logAction('Financial File Access')">📄 salary.xlsx</li>
+            <li onclick="logAction('Financial File Access')">📄 budget.pdf</li>
+        </ul>
+    </div>
+
+    <!-- Folder 2 -->
+    <div class="folder">
+        <h3>📂 Database Files</h3>
+        <ul>
+            <li onclick="logAction('Database Access')">📄 users.db</li>
+            <li onclick="logAction('Database Access')">📄 backup.sql</li>
+        </ul>
+    </div>
+
+    <!-- Folder 3 -->
+    <div class="folder">
+        <h3>📂 General Files</h3>
+        <ul>
+            <li onclick="logAction('Normal File Access')">📄 notes.txt</li>
+            <li onclick="logAction('Normal File Access')">📄 report.docx</li>
+        </ul>
+    </div>
+
+    <!-- Upload -->
+    <div class="upload">
+        <h3>⬆ Upload File</h3>
+        <button onclick="logAction('Upload File')">Upload</button>
+    </div>
+
+</div>
+
+<script>
+function logAction(action) {
+    fetch('/log_action', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: action })
+    })
+    .then(res => res.json())
+    .then(data => alert("Action Logged"));
+}
+</script>
+
+</body>
+</html>
