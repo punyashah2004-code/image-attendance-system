@@ -11,7 +11,7 @@ This project is a machine learning-based system designed to detect insider threa
 ## Technologies Used
 - Python
 - Machine Learning
-- Flask (if used)
+- Flask 
 - HTML, CSS
 
 ## How to Run
