@@ -1,20 +1,21 @@
-# Image Attendance System (ML)
+# Insider Threat Detection System
 
-This project is a machine learning-based attendance system that uses image recognition to automatically detect faces and mark attendance.
+This project is a machine learning-based system designed to detect insider threats by analyzing user behavior and activity patterns.
 
 ## Features
-- Face detection and recognition
-- Automatic attendance marking
-- Real-time image processing
-- User-friendly interface
+- User activity monitoring
+- Threat detection using ML models
+- Data generation and analysis
+- Secure authentication system
 
 ## Technologies Used
 - Python
-- OpenCV
 - Machine Learning
+- Flask (if used)
+- HTML, CSS
 
 ## How to Run
-1. Install required libraries:
-   pip install opencv-python numpy
-2. Run the main file:
-   python main.py
+1. Install dependencies:
+   pip install -r requirements.txt
+2. Run the application:
+   python app.py
